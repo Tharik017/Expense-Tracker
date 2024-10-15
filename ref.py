@@ -6,18 +6,21 @@ from datetime import datetime
 from database import create_table, register_user, verify_user
 
 
-# Inject custom CSS to hide "Manage app" button and footer
-hide_streamlit_style = """
-    <style>
-    #MainMenu {visibility: hidden;} /* Hide the Streamlit main menu */
-    footer {visibility: hidden;} /* Hide the footer */
-    header {visibility: hidden;} /* Hide the "Manage app" button */
-    </style>
-"""
+
 
 # Create the users table if it doesn't exist
 create_table()
-
+st.markdown(
+    """
+    <style>
+    header {
+        visibility: hidden;  /* Hides the header */
+        height: 0;           /* Prevents spacing issues */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 # Initialize the app
 st.title("Personal Expense Tracker")
 

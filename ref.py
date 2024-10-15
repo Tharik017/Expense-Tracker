@@ -5,6 +5,16 @@ import base64
 from datetime import datetime
 from database import create_table, register_user, verify_user
 
+
+# Inject custom CSS to hide "Manage app" button and footer
+hide_streamlit_style = """
+    <style>
+    #MainMenu {visibility: hidden;} /* Hide the Streamlit main menu */
+    footer {visibility: hidden;} /* Hide the footer */
+    header {visibility: hidden;} /* Hide the "Manage app" button */
+    </style>
+"""
+
 # Create the users table if it doesn't exist
 create_table()
 
